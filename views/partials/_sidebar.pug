@@ -1,0 +1,62 @@
+nav#sidebar.sidebar.sidebar-offcanvas
+      ul.nav
+        li.nav-item.nav-profile
+          a.nav-link(href='#')
+            .nav-profile-image
+              img(src='public/assets/images/faces/face1.jpg' alt='profile')
+              span.login-status.online
+              // change to offline or busy as needed
+            .nav-profile-text.d-flex.flex-column
+              span.font-weight-bold.mb-2 Dana
+              span.text-secondary.text-small IT Backend Engineer
+            i.mdi.mdi-bookmark-check.text-success.nav-profile-badge
+        li.nav-item
+          a.nav-link(href='/dashboard')
+            span.menu-title Dashboard
+            i.mdi.mdi-home.menu-icon
+        li.nav-item
+          a.nav-link(data-toggle='collapse' href='#ui-products' aria-expanded='false' aria-controls='ui-products')
+            span.menu-title Products
+            i.mdi.mdi-package-variant-closed.menu-icon
+          #ui-products.collapse
+            ul.nav.flex-column.sub-menu
+              li.nav-item
+                a.nav-link(href='/products') Product List
+              li.nav-item
+                a.nav-link(href='/discounts') Discount
+        li.nav-item
+          a.nav-link(data-toggle='collapse' href='#ui-promo' aria-expanded='false' aria-controls='ui-promo')
+            span.menu-title Promotions
+            i.mdi.mdi-wallet-giftcard.menu-icon
+          #ui-promo.collapse
+            ul.nav.flex-column.sub-menu
+              li.nav-item
+                a.nav-link(href='#') Hero Slider
+              li.nav-item
+                a.nav-link(href='#') Banner Promo
+        li.nav-item
+          a.nav-link(data-toggle='collapse' href='#ui-blog' aria-expanded='false' aria-controls='ui-blog')
+            span.menu-title Vsight (Blogs)
+            i.mdi.mdi-newspaper.menu-icon
+          #ui-blog.collapse
+            ul.nav.flex-column.sub-menu
+              li.nav-item
+                a.nav-link(href='#') Blog Posts
+        li.nav-item
+          a.nav-link(data-toggle='collapse' href='#ui-inbox' aria-expanded='false' aria-controls='ui-inbox')
+            span.menu-title Messages
+            i.mdi.mdi-inbox.menu-icon
+          #ui-inbox.collapse
+            ul.nav.flex-column.sub-menu
+              li.nav-item
+                a.nav-link(href='#') Message List
+        li.nav-item
+          a.nav-link(data-toggle='collapse' href='#ui-accnt' aria-expanded='false' aria-controls='ui-accnt')
+            span.menu-title Peoples
+            i.mdi.mdi-account-multiple.menu-icon
+          #ui-accnt.collapse
+            ul.nav.flex-column.sub-menu
+              li.nav-item
+                a.nav-link(href='#') Users
+              li.nav-item
+                a.nav-link(href='#') Admins

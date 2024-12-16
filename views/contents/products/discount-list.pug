@@ -1,0 +1,27 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href='#') Products
+                li.breadcrumb-item.active(aria-current='page') Discount List
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    table.table.table-hover
+                        thead
+                            tr
+                                th CODE
+                                th NAME
+                                th BRAND
+                                th MANUFACTURE
+                                th DESCRIPTION
+                                th PRICE
+                                th PRICE DISCOUNT
+                                th ACTIONS
+                        tbody
+                            tr

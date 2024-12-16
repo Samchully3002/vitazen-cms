@@ -1,0 +1,28 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href='#') Blogs
+                li.breadcrumb-item.active(aria-current='page') Post List
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    table#productTable.table.table-hover
+                        thead
+                            tr
+                                th TITLE
+                                th BODY
+                                th IMAGE
+                        tbody
+                            each vsight in vsights
+                                tr
+                                    td= vsight.title
+                                    td= vsight.body
+                                    td= vsight.image
+
+

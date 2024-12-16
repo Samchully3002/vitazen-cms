@@ -1,42 +1,31 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const authRoute = require('./routes/authRoute.js');
+const dashboardRoute = require('./routes/dashboardRoute.js');
+const productRoute = require('./routes/productRoute.js');
+const vsightRoute = require('./routes/vsightRoute.js');
 
 // Set Pug as the template engine
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files
+// Serve static files from the public directory
 app.use('/public', express.static('public'));
 
-// Routes
-app.get('/', (req, res) => {
-  res.render('contents/dashboard');
-});
+// Serve Routes
+app.use('/', authRoute);
+app.use('/', dashboardRoute);
+app.use('/', productRoute);
+app.use('/', vsightRoute);
 
-app.get('/dashboard', (req, res) => {
-  res.render('contents/dashboard');
-});
+// Set base URL globally
 
-app.get('/products/product-list', (req, res) => {
-  res.render('contents/dashboard');
-});
-
-app.get('/products/product-discount', (req, res) => {
-  res.render('contents/dashboard');
-});
-
-app.get('/promotions/hero-slider', (req, res) => {
-  res.render('contents/dashboard');
-});
-
-app.get('/promotions/banner-promo', (req, res) => {
-  res.render('contents/dashboard');
-});
 
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+
+app.locals.baseUrl = `http://localhost:${PORT}`; // Your base URL here
+
+app.listen(PORT, () => console.log(`Frontend running at http://localhost:${PORT}`));

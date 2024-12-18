@@ -9,9 +9,16 @@ exports.renderProductList = async (req, res) => {
         const response = await axios.get(`${BACKEND_API}/products`);
         const products = response.data.products;
 
-        //console.log(products.products);
-
         res.render('contents/products/product-list', { products });
+    } catch (err) {
+        console.error(err.message);
+        res.redirect('/login');
+    }
+};
+
+exports.renderProductPost = async (req, res) => {
+    try {
+        res.render('contents/products/product-post');
     } catch (err) {
         console.error(err.message);
         res.redirect('/login');
@@ -20,8 +27,19 @@ exports.renderProductList = async (req, res) => {
 
 exports.renderDiscountList = async (req, res) => {
     try {
+        const response = await axios.get(`${BACKEND_API}/discounts`);
+        const discounts = response.data.discounts;
 
-        res.render('contents/products/discount-list');
+        res.render('contents/products/discount-list', {discounts});
+    } catch (err) {
+        console.error(err.message);
+        res.redirect('/login');
+    }
+};
+
+exports.renderDiscountPost = async (req, res) => {
+    try {
+        res.render('contents/products/discount-post');
     } catch (err) {
         console.error(err.message);
         res.redirect('/login');

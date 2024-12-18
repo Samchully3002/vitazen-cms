@@ -1,0 +1,79 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  Create New Product
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/dashboard`) Dashboard
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/products/product-list`) Product List
+                li.breadcrumb-item.active(aria-current='page') Create Product
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    form.form-sample
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='code') Product Code
+                                        input#code.form-control(type='text' placeholder='Product Code...')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='name') Product Name
+                                        input#name.form-control(type='text' placeholder='Product Name...')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='brand') Brand
+                                        input#brand.form-control(type='text' placeholder='Brand...')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='manufacture') Manufacture
+                                        input#manufacture.form-control(type='text' placeholder='Manufacture...')
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                          label(for='description') Description
+                                          textarea#description.form-control(rows='4')
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='price') Price
+                                        input#price.form-control(type='text' placeholder='Price...')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='thumbnail') Thumbnail
+                                        input#thumbnail.form-control(type='file' accept='image/*')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='images') Images
+                                        input#images.form-control(type='file' accept='image/*' multiple='')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        .preview
+                                            img#imagePreview.img-fluid(src='#' alt='Thumbnail Preview')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        #imagePreviewContainer.image-preview-container
+                        .text-right
+                            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+                            button.btn.btn-light Clear Form
+
+                                        
+                            
+                        

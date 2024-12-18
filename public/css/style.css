@@ -10774,6 +10774,12 @@
   
   .bg-gradient-dark {
     background: linear-gradient(89deg, #5e7188, #3e4b5b) !important; }
+
+    .bg-gradient-purple {
+      background: -webkit-gradient(linear, left top, left bottom, from(#d3b8e4), to(#a26bcb)) !important;
+      background: linear-gradient(to bottom, #d3b8e4, #a26bcb) !important;
+  }
+  
   
   /* Demo Styles */
   .template-demo .slider-wrap {

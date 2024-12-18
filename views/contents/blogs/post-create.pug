@@ -1,0 +1,57 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  Create New Post
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/dashboard`) Dashboard
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/blogs/post-list`) Hero Slider List
+                li.breadcrumb-item.active(aria-current='page') Create New Vsight Post
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    form.form-sample
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='title') Title
+                                        input#title.form-control(type='text' placeholder='Title...')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='active') Show Landing Pages
+                                        select#active.form-control
+                                            option(value='true') Yes
+                                            option(value='false') No
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                          label(for='body') Text Body
+                                          textarea#body.form-control(rows='6')
+                        
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='thumbnail') Image
+                                        input#thumbnail.form-control(type='file' accept='image/*')
+                            .col-md-6
+                                .form-group.row
+                                   .col-sm-12
+                                        .preview
+                                            img#imagePreview.img-fluid(src='#' alt='Thumbnail Preview')
+
+                                        
+                        .text-right
+                            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+                            button.btn.btn-light Clear Form
+
+                                        
+                            
+                        

@@ -1,0 +1,33 @@
+extends ../../layout
+
+block content
+    .page-header
+        a.btn.btn-gradient-primary.btn-fw(href=`${baseUrl}/promotions/promo-create`) Create Promo Banner
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href='#') Promotions
+                li.breadcrumb-item.active(aria-current='page') Promo List
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    table#productTable.table.table-hover
+                        thead
+                            tr
+                                th TITLE
+                                th SUB TITLE
+                                th TEXT BUTTON
+                                th LINK
+                                th IMAGE
+                        tbody
+                            each promo in promos
+                                tr
+                                    td= promo.title
+                                    td= promo.subtitle
+                                    td= promo.textBtn
+                                    td= promo.linkBtn
+                                    td
+                                        img(src=promo.image alt=promo.title style="width: 200px; height: 140px; border-radius:0")
+
+

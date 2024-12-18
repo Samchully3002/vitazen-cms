@@ -1,0 +1,64 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  Create New Discount
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/dashboard`) Dashboard
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/products/discount-list`) Discount List
+                li.breadcrumb-item.active(aria-current='page') Create Discount
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    form.form-sample
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='name') Discount Name
+                                        input#code.form-control(type='text' placeholder='Discount Name...')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='type') Discount Type
+                                        select#type.form-control
+                                            option(value='percentage') Percentage
+                                            option(value='fixed') Fixed
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='value') Discount Value
+                                        input#value.form-control(type='text' placeholder='Discount Value...')
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                          label(for='description') Product Codes [separated by comas]
+                                          #tagContainer.tag-input(onclick="document.getElementById('tagInput').focus()")
+                                            input#tagInput.form-control(type='text' placeholder='Type here and press space...' autofocus='')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='validFrom') Valid From
+                                        input#validFrom.form-control(placeholder='dd/mm/yyyy')
+
+                                        
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='validUntil') Expired
+                                        input#validUntil.form-control(placeholder='dd/mm/yyyy')
+                                        
+                        .text-right
+                            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+                            button.btn.btn-light Clear Form
+
+                                        
+                            
+                        

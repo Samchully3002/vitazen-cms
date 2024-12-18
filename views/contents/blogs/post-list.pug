@@ -2,11 +2,11 @@ extends ../../layout
 
 block content
     .page-header
-        h3.page-title  
+        a.btn.btn-gradient-primary.btn-fw(href=`${baseUrl}/blogs/post-create`) Create Post
         nav(aria-label='breadcrumb')
             ol.breadcrumb
                 li.breadcrumb-item 
-                    a(href='#') Blogs
+                    a(href=`${baseUrl}/dashboard`) Dashboard
                 li.breadcrumb-item.active(aria-current='page') Post List
     .row
         .col-lg-12.grid-margin.stretch-card
@@ -23,6 +23,7 @@ block content
                                 tr
                                     td= vsight.title
                                     td= vsight.body
-                                    td= vsight.image
+                                    td
+                                        img(src=vsight.image alt=vsight.title style="width: 200px; height: 120px; border-radius:0")
 
 

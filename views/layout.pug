@@ -12,17 +12,19 @@ html(lang='en')
         include partials/_footer
   script(src=`${baseUrl}/public/vendors/js/vendor.bundle.base.js`)
   script(src=`${baseUrl}/public/vendors/chart.js/Chart.min.js`)
-  script(src=`${baseUrl}/public/js/jquery.cookie.js' type='text/javascript`)
-  script(src=`${baseUrl}/js/off-canvas.js`)
+  script(src=`${baseUrl}/public/js/off-canvas.js`)
   script(src=`${baseUrl}/public/js/hoverable-collapse.js`)
   script(src=`${baseUrl}/public/js/misc.js`)
   script(src=`${baseUrl}/public/js/dashboard.js`)
   script(src=`${baseUrl}/public/js/todolist.js`)
   script(src='https://code.jquery.com/jquery-3.6.0.min.js')
-  //- script(src='https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js')
+  script(src='https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js')
   script(src='https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js')
+  script(src=`${baseUrl}/public/js/imagepreview.js`)
+  script(src=`${baseUrl}/public/js/texttag.js`)
     // DataTables Initialization
   script.
     $(document).ready(function() {
         $('#productTable').DataTable();
+        $('#discountTable').DataTable();
     });

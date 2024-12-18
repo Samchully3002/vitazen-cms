@@ -1,0 +1,67 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  Create New Promo Banner
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/dashboard`) Dashboard
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/promotions/promo-list`) Promo Banner List
+                li.breadcrumb-item.active(aria-current='page') Create Promo Banner
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    form.form-sample
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='title') Title
+                                        input#title.form-control(type='text' placeholder='Title...')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='subtitle') Sub Title
+                                        input#subtitle.form-control(type='text' placeholder='Sub Title...')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='textBtn') Text Button
+                                        input#textBtn.form-control(type='text' placeholder='Text Button...')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='linkBtn') Link Button
+                                        input#linkBtn.form-control(type='text' placeholder='Link Button...')
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='active') Show Landing Pages
+                                        select#active.form-control
+                                            option(value='true') Yes
+                                            option(value='false') No
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='thumbnail') Image
+                                        input#thumbnail.form-control(type='file' accept='image/*')
+                            .col-md-6
+                                .form-group.row
+                                   .col-sm-12
+                                        .preview
+                                            img#imagePreview.img-fluid(src='#' alt='Thumbnail Preview')
+
+                                        
+                        .text-right
+                            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+                            button.btn.btn-light Clear Form
+
+                                        
+                            
+                        

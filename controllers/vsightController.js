@@ -17,3 +17,12 @@ exports.renderPostList = async (req, res) => {
         res.redirect('/login');
     }
 };
+
+exports.renderPostCreate = async (req, res) => {
+    try {
+        res.render('contents/blogs/post-create');
+    } catch (err) {
+        console.error(err.message);
+        res.redirect('/login');
+    }
+};

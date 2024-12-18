@@ -2,26 +2,30 @@ extends ../../layout
 
 block content
     .page-header
-        h3.page-title  
+        a.btn.btn-gradient-primary.btn-fw(href=`${baseUrl}/products/discount-create`) Create Discount 
         nav(aria-label='breadcrumb')
             ol.breadcrumb
                 li.breadcrumb-item 
-                    a(href='#') Products
+                    a(href=`${baseUrl}/dashboard`) Dashboard
                 li.breadcrumb-item.active(aria-current='page') Discount List
     .row
         .col-lg-12.grid-margin.stretch-card
             .card
                 .card-body
-                    table.table.table-hover
+                    table#productTable.table.table-hover
                         thead
                             tr
-                                th CODE
                                 th NAME
-                                th BRAND
-                                th MANUFACTURE
-                                th DESCRIPTION
-                                th PRICE
-                                th PRICE DISCOUNT
-                                th ACTIONS
+                                th TYPE
+                                th VALUE
+                                th VALID FROM
+                                th EXPIRED
                         tbody
-                            tr
+                            each discount in discounts
+                                tr
+                                    td= discount.name
+                                    td= discount.type
+                                    td= discount.value
+                                    td= discount.validFrom
+                                    td= discount.validUntil
+

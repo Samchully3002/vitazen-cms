@@ -1,0 +1,33 @@
+extends ../../layout
+
+block content
+    .page-header
+        a.btn.btn-gradient-primary.btn-fw(href=`${baseUrl}/promotions/hero-create`) Create Hero Slider 
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/dashboard`) Dashboard
+                li.breadcrumb-item.active(aria-current='page') Hero List
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    table#productTable.table.table-hover
+                        thead
+                            tr
+                                th TITLE
+                                th SUB TITLE
+                                th TEXT BUTTON
+                                th LINK
+                                th IMAGE
+                        tbody
+                            each hero in heroes
+                                tr
+                                    td= hero.title
+                                    td= hero.subtitle
+                                    td= hero.textBtn
+                                    td= hero.linkBtn
+                                    td
+                                        img(src=hero.image alt=hero.title style="width: 200px; height: 140px; border-radius:0")
+
+

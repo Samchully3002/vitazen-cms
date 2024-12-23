@@ -20,6 +20,7 @@ block content
                                 th VALUE
                                 th VALID FROM
                                 th EXPIRED
+                                th ACTIONS
                         tbody
                             each discount in discounts
                                 tr
@@ -28,4 +29,9 @@ block content
                                     td= discount.value
                                     td= discount.validFrom
                                     td= discount.validUntil
+                                    td.text-center
+                                        a.btn.btn-primary.btn-sm(href=`/products/discount-edit/${discount._id}` title="Edit")
+                                            i.mdi.mdi-grease-pencil 
+                                        a.btn.btn-danger.btn-sm(href=`/products/discount-delete/${discount._id}` title="Delete" onclick="return confirm('Are you sure you want to delete this item?')") 
+                                            i.mdi.mdi-delete
 

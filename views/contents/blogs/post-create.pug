@@ -2,30 +2,31 @@ extends ../../layout
 
 block content
     .page-header
-        h3.page-title  Create New Post
+        h3.page-title  #{vsight ? 'Edit Vsight Post' : 'Create New Vsight Post'}
         nav(aria-label='breadcrumb')
             ol.breadcrumb
                 li.breadcrumb-item 
                     a(href=`${baseUrl}/dashboard`) Dashboard
                 li.breadcrumb-item 
                     a(href=`${baseUrl}/blogs/post-list`) Hero Slider List
-                li.breadcrumb-item.active(aria-current='page') Create New Vsight Post
+                li.breadcrumb-item.active(aria-current='page') Create New Vsight
     .row
         .col-lg-12.grid-margin.stretch-card
             .card
                 .card-body
-                    form.form-sample
+                    form#form-blog.form-sample
                         .row
                             .col-md-6
                                 .form-group.row
                                     .col-sm-12
                                         label(for='title') Title
-                                        input#title.form-control(type='text' placeholder='Title...')
+                                        input#postId(type='hidden' name='postId' value=vsight ? vsight._id : '')
+                                        input#title.form-control(name='title' type='text' placeholder='Promotion Title...' required value=vsight ? vsight.title : '')
                             .col-md-6
                                 .form-group.row
                                     .col-sm-12
                                         label(for='active') Show Landing Pages
-                                        select#active.form-control
+                                        select#active.form-control(name="active")
                                             option(value='true') Yes
                                             option(value='false') No
                         .row
@@ -33,24 +34,31 @@ block content
                                 .form-group.row
                                     .col-sm-12
                                           label(for='body') Text Body
-                                          textarea#body.form-control(rows='6')
+                                          textarea#body.form-control(rows='6' name='body' required)=vsight ? vsight.body : ''
                         
                         .row
                             .col-md-6
                                 .form-group.row
                                     .col-sm-12
-                                        label(for='thumbnail') Image
-                                        input#thumbnail.form-control(type='file' accept='image/*')
+                                        label(for='image') Image
+                                        input#image.form-control(type='file' accept='image/*' name="image")
                             .col-md-6
                                 .form-group.row
                                    .col-sm-12
                                         .preview
-                                            img#imagePreview.img-fluid(src='#' alt='Thumbnail Preview')
+                                            img#imagePreview.img-fluid(
+                                                src=vsight && vsight.image ? vsight.image : '#',
+                                                alt='Image Preview',
+                                                style=vsight && vsight.image ? 'display: block;' : 'display: none;'
+                                                )
 
                                         
                         .text-right
                             button.btn.btn-gradient-primary.mr-2(type='submit') Submit
                             button.btn.btn-light Clear Form
+
+block pageScripts
+    script(src=`${baseUrl}/public/js/forms/blog-post.js`) 
 
                                         
                             

@@ -18,19 +18,18 @@ head
           .auth-form-light.text-left.p-5
             .brand-logo.text-center
               img(src=`${baseUrl}/public/assets/images/logo.png`)
-            form.pt-3
+            form#form-login.pt-3
               .form-group
-                input#exampleInputEmail1.form-control.form-control-lg(type='email' placeholder='Username')
+                input#emailInput.form-control.form-control-lg(type='email' placeholder='Email' name='email' required)
               .form-group
-                input#exampleInputPassword1.form-control.form-control-lg(type='password' placeholder='Password')
+                input#passwordInput.form-control.form-control-lg(type='password' placeholder='Password' name='password' required)
               .mt-3
-                a.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(href='../../index-2.html') SIGN IN
+                button.btn.btn-block.btn-gradient-primary.mr-2(type='submit') Sign In
     // content-wrapper ends
   // page-body-wrapper ends
 // container-scroller
 // plugins:js
-script(src='public/assets/vendors/js/vendor.bundle.base.js')
-script(src='public/assets/js/off-canvas.js')
-script(src='public/assets/js/hoverable-collapse.js')
-script(src='public/assets/js/misc.js')
+script(src='public/vendors/js/vendor.bundle.base.js')
+block pageScripts
+    script(src=`${baseUrl}/public/js/forms/auth-login.js`) 
 // endinject

@@ -25,6 +25,44 @@ exports.renderProductPost = async (req, res) => {
     }
 };
 
+exports.renderProductEdit = async (req, res) => {
+    try {
+        const { slug } = req.params; // Extract slug from request parameters
+       
+        // Fetch product data from the API
+       const response = await axios.get(`${BACKEND_API}/products/${slug}`);
+        
+       // Extract product data
+       const product = response.data;
+
+       // Render the view and pass the product data
+       res.render('contents/products/product-post', { product });
+    } catch (err) {
+        console.error(err.message);
+        res.redirect('/login');
+    }
+};
+
+exports.deleteProduct = async (req, res) => {
+    try {
+        const { id } = req.params; // Extract product ID from request parameters
+
+        // Send delete request to the backend
+        await axios.delete(`${BACKEND_API}/products/${id}`);
+
+        // Redirect to the product list or send a success response
+        res.redirect('/products/product-list');
+    } catch (err) {
+        console.error(err.message);
+
+        // Handle errors gracefully
+        res.status(500).send({
+            error: 'Failed to delete the product. Please try again later.',
+            details: err.message
+        });
+    }
+};
+
 exports.renderDiscountList = async (req, res) => {
     try {
         const response = await axios.get(`${BACKEND_API}/discounts`);
@@ -40,6 +78,25 @@ exports.renderDiscountList = async (req, res) => {
 exports.renderDiscountPost = async (req, res) => {
     try {
         res.render('contents/products/discount-post');
+    } catch (err) {
+        console.error(err.message);
+        res.redirect('/login');
+    }
+};
+
+exports.renderDiscountEdit = async (req, res) => {
+    try {
+        const { id } = req.params; // Extract id from request parameters
+       
+        // Fetch discount data from the API
+       const response = await axios.get(`${BACKEND_API}/discounts/${id}`);
+        
+       // Extract discount data
+       const discount = response.data.discount;
+       console.log(discount);
+
+       // Render the view and pass the discount data
+       res.render('contents/products/discount-post', { discount });
     } catch (err) {
         console.error(err.message);
         res.redirect('/login');

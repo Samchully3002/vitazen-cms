@@ -20,6 +20,7 @@ block content
                                 th TEXT BUTTON
                                 th LINK
                                 th IMAGE
+                                th ACTIONS
                         tbody
                             each hero in heroes
                                 tr
@@ -29,5 +30,10 @@ block content
                                     td= hero.linkBtn
                                     td
                                         img(src=hero.image alt=hero.title style="width: 200px; height: 140px; border-radius:0")
+                                    td.text-center
+                                        a.btn.btn-primary.btn-sm(href=`/promotions/hero-edit/${hero._id}` title="Edit")
+                                            i.mdi.mdi-grease-pencil 
+                                        a.btn.btn-danger.btn-sm(href=`/promotions/hero-delete/${hero._id}` title="Delete" onclick="return confirm('Are you sure you want to delete this item?')") 
+                                            i.mdi.mdi-delete
 
 

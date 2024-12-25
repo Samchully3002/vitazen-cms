@@ -5,3 +5,10 @@ exports.requireAuth = (req, res, next) => {
     }
     next();
   };
+
+exports.signOut = (req, res, next) => {
+  res.cookie('auth_token', '', { path: '/', maxAge: 0 });
+
+  console.log("Logged out successfully!");
+  next();
+  };

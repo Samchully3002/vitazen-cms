@@ -40,3 +40,7 @@ function updateProductsField() {
     productsField.value = JSON.stringify(tags); // Save as JSON array in the hidden field
     console.log('Updated products field:', productsField.value); // For debugging
 }
+
+function populateTags(data) {
+    data.forEach(item => createTag(item));
+}

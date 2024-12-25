@@ -15,6 +15,7 @@ router.get('/products/product-delete/:id', requireAuth, productController.delete
 router.get('/products/discount-list', requireAuth, productController.renderDiscountList);
 router.get('/products/discount-create', requireAuth, productController.renderDiscountPost);
 router.get('/products/discount-edit/:id', requireAuth, productController.renderDiscountEdit);
+router.get('/products/discount-delete/:id', requireAuth, productController.deleteDiscount);
 //router.get('/products/discount-delete/:id', productController.deleteDiscount);
 
 module.exports = router;

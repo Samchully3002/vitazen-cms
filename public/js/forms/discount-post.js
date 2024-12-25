@@ -15,16 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             type: formData.get('type'),
             validFrom: formData.get('validFrom'),
             validUntil: formData.get('validUntil'),
-            productIds: formData.get('products')
-                        };
-        const body = new FormData();
-
-        // Append fields
-        for (const key in discountData) {
-            body.append(key, discountData[key]);
-        }
-
-        console.log(body);
+            products: JSON.parse(formData.get('products'))
+        };
 
         const method = discountId.value ? 'PUT' : 'POST'; // Use PUT if there's an ID (edit mode), else POST (create mode)
         const url = discountId.value ? `${API_URL}/discounts/${discountId.value}` : `${API_URL}/discounts`;
@@ -32,8 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(url, {
                 method: method,
-                body
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(discountData),
             });
+
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -44,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
             console.log('Discount saved successfully:', result);
+            form.reset();
             alert('Discount saved successfully!');
+            
 
         } catch (error) {
             console.error('An error occurred:', error);

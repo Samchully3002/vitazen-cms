@@ -48,7 +48,7 @@ block content
                                                 type='text' 
                                                 placeholder='Type here and press space...' 
                                             )
-                                          input#products(type='text' name='products' value='')
+                                          input#products(type='hidden' name='products' value='')
                         .row
                             .col-md-6
                                 .form-group.row
@@ -71,9 +71,8 @@ block pageScripts
   script(src=`${baseUrl}/public/js/texttag.js`)
   script(src=`${baseUrl}/public/js/forms/discount-post.js`)
   script.
-    const discount = !{JSON.stringify(discount) || null};
-    const existingProducts = discount.products || '[]'; // Get products from data attribute
-    console.log(discount.products);
+    const prod = !{JSON.stringify(validProductIds) || null};
+    const existingProducts = prod || '[]'; // Get products from data attribute
     populateTags(existingProducts);
                             
                         

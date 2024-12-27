@@ -1,0 +1,58 @@
+extends ../../layout
+
+block content
+    .page-header
+        h3.page-title  #{user ? 'Edit Admin' : 'Create New Admin'}
+        nav(aria-label='breadcrumb')
+            ol.breadcrumb
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/dashboard`) Dashboard
+                li.breadcrumb-item 
+                    a(href=`${baseUrl}/peoples/admin-list`) List Admin
+                li.breadcrumb-item.active(aria-current='page') #{user ? 'Edit Admin' : 'Create New Admin'}
+    .row
+        .col-lg-12.grid-margin.stretch-card
+            .card
+                .card-body
+                    form#form-blog.form-sample
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='userName') Fullname
+                                        input#userId(type='hidden' name='userId' value=user ? user._id : '')
+                                        input#userName.form-control(name='userName' type='text' placeholder='Fullname...' required value=user ? user.userName : '')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='accountNumber') Username
+                                        input#accountNumber.form-control(name='accountNumber' type='text' placeholder='Username...' required value=user ? user.accountNumber : '')
+                        .row
+                            .col-md-12
+                                .form-group.row
+                                    .col-sm-12
+                                          label(for='body') Email Address
+                                          input#accountNumber.form-control(name='accountNumber' type='text' placeholder='Email Address...' required value=user ? user.emailAddress : '')
+                        .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='userName') Password
+                                        input#userName.form-control(name='userName' type='password' placeholder='Password...' required value=user ? user.password : '')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='accountNumber') Retype Password
+                                        input#accountNumber.form-control(name='accountNumber' type='password' placeholder='Retype Password...' required value=user ? user.password : '')
+
+                                        
+                        .text-right
+                            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+                            button.btn.btn-light Clear Form
+
+block pageScripts
+    script(src=`${baseUrl}/public/js/forms/blog-post.js`) 
+
+                                        
+                            
+                        

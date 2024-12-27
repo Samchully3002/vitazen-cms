@@ -54,6 +54,21 @@ block content
                                         label(for='price') Price
                                         input#price.form-control(name='price' type='text' placeholder='Price...' required value=product ? product.price : '')
                         .row
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='shopee') Shopee
+                                        input#shopee.form-control(name='shopee' type='text' placeholder='Shopee...' required value=product ? product.shopee : '')
+                            .col-md-6
+                                .form-group.row
+                                    .col-sm-12
+                                        label(for='tokopedia') Tokopedia
+                                        input#tokopedia.form-control(name='tokopedia' type='text' placeholder='Tokopedia...' required value=product ? product.tokopedia : '')
+                        
+                    
+
+
+                        .row
                             .col-md-4
                                 .form-group.row
                                     .col-sm-12

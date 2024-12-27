@@ -8,6 +8,7 @@ const productRoute = require('./routes/productRoute.js');
 const vsightRoute = require('./routes/vsightRoute.js');
 const promoRoute = require('./routes/promotionRoute.js');
 const contactRoute = require('./routes/contactusRoute.js');
+const adminRoute = require('./routes/adminRoute.js');
 
 const app = express();
 
@@ -32,7 +33,7 @@ app.use('/', productRoute);
 app.use('/', vsightRoute);
 app.use('/', promoRoute);
 app.use('/', contactRoute);
-
+app.use('/', adminRoute);
 
 // Catch-all middleware for undefined routes
 app.use((req, res) => {

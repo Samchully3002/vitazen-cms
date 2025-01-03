@@ -5,15 +5,18 @@ const BACKEND_API = process.env.BACKEND_API || 'http://localhost:3000'; // Repla
 
 exports.renderDashboard = async (req, res) => {
     try {
-        // Example: Fetch user data from backend API
 
-        // const response = await axios.get(`${BACKEND_API}/landing/products/snovv-liposom`);
-        // const vData = response.data;
+        const resProduct = await axios.get(`${BACKEND_API}/api/dashboard-product`);
+        const resPromo = await axios.get(`${BACKEND_API}/api/dashboard-promo`);
+        const resReview = await axios.get(`${BACKEND_API}/api/dashboard-review`);
+        
+        
+        const products = resProduct.data;
+        const promo = resPromo.data;
+        const review = resReview.data;
 
-        // console.log(vData);
-
-        // res.render('contents/dashboard', { title: 'Dashboard', user: userData });
-        res.render('contents/dashboard');
+         res.render('contents/dashboard', { products, promo, review });
+        //res.render('contents/dashboard');
     } catch (err) {
         console.error(err.message);
         res.redirect('/login');

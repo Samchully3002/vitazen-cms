@@ -1,0 +1,10 @@
+td {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add "..." to indicate overflow */
+  }
+  
+  table.dataTable td {
+    max-width: 600px; /* Match your fixed width */
+  }
+  

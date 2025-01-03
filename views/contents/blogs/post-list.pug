@@ -1,5 +1,8 @@
 extends ../../layout
 
+block pageStyles
+  link(rel='stylesheet' href=`${baseUrl}/public/css/tableformat.css`)
+
 block content
     .page-header
         a.btn.btn-gradient-primary.btn-fw(href=`${baseUrl}/blogs/post-create`) Create Post

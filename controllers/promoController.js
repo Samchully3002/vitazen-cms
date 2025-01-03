@@ -116,7 +116,6 @@ exports.renderPromoEdit = async (req, res) => {
        // Extract discount data
        const promotion = response.data.promotion;
        // Render the view and pass the discount data
-       console.log(promotion);
        res.render('contents/promotions/promo-post', { promotion });
     } catch (err) {
         console.error(err.message);

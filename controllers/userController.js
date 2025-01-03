@@ -28,7 +28,6 @@ exports.renderUserCreate = async (req, res) => {
 exports.renderUserEdit = async (req, res) => {
     try {
         const { accountNumber } = req.params; // Extract id from request parameters
-        console.log(accountNumber);
         // Fetch discount data from the API
        const response = await axios.get(`${BACKEND_API}/users/account/number/${accountNumber}`);
         

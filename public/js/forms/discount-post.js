@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const result = await response.json();
-            console.log('Discount saved successfully:', result);
             form.reset();
             alert('Discount saved successfully!');
             

@@ -11,11 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Prepare data to send to the API
         const blogData = {
             title: formData.get('title'),
-            body: formData.get('body'),
+            body: formData.get('bodyPost'),
             active: formData.get('active')            
         };
-
-        console.log(blogData);
 
         // Prepare files for upload
         const image = formData.get('image');
@@ -47,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const result = await response.json();
-            console.log('Vsight saved successfully:', result);
             alert('Vsight saved successfully!');
 
             // Optionally, clear the form after successful submission (for POST only)

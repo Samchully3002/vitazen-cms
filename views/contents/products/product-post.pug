@@ -45,8 +45,8 @@ block content
                             .col-md-12
                                 .form-group.row
                                     .col-sm-12
-                                          label(for='description') Description
-                                          textarea#description.form-control(name='description' rows='4' required )=product ? product.description : ''
+                                          label(for='descriptionText') Description
+                                          textarea#descriptionText.form-control(name='descriptionText' rows='4' required )=product ? product.description : ''
                         .row
                             .col-md-12
                                 .form-group.row
@@ -117,7 +117,14 @@ block pageScripts
     const product = !{JSON.stringify(product) || null};
     if(product)
         displayExistingImages(product.images); // Call when fetching data for editing
-    
+  script(src=`${baseUrl}/public/vendors/tinymce/tinymce.min.js` referrerpolicy='origin')
+  script.
+      tinymce.init({
+        selector: '#descriptionText',
+        plugins: 'link table lists',
+        toolbar: 'undo redo | bold italic | bullist numlist | alignleft aligncenter alignright alignjustify | table',
+        height: 500
+      });
 
                                         
                             

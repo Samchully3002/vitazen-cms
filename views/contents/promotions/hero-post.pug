@@ -20,8 +20,8 @@ block content
                                 .form-group.row
                                     .col-sm-12
                                         label(for='title') Title
-                                        input#heroId(type='hidden' name='heroId' value=hero ? hero._id : '')
-                                        input#title.form-control(name='title' type='text' placeholder='Promotion Title...' required value=promotion ? promotion.title : '')
+                                        input#heroId(type='hidden' name='heroId' value=promotion ? promotion._id : '')
+                                        input#title.form-control(name='title' type='text' placeholder='Slider Title...' required value=promotion ? promotion.title : '')
                             .col-md-6
                                 .form-group.row
                                     .col-sm-12
@@ -50,8 +50,8 @@ block content
                             .col-md-6
                                 .form-group.row
                                     .col-sm-12
-                                        label(for='thumbnail') Image
-                                        input#thumbnail.form-control(type='file' accept='image/*' name="image")
+                                        label(for='image') Image
+                                        input#image.form-control(type='file' accept='image/*' name="image")
                             .col-md-6
                                 .form-group.row
                                    .col-sm-12

@@ -13,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
             password: formData.get('password')
         };
 
-        console.log(userData);
-
-
         const method = 'POST'; 
         const url = `${API_URL}/auth/login`;
 

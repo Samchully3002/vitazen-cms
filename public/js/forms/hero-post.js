@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
         };
 
-        console.log(heroData);
 
         // Prepare files for upload
         const image = formData.get('image');
@@ -33,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Append files
         if (image) body.append('image', image);
+
         
         const method = heroId.value ? 'PUT' : 'POST'; // Use PUT if there's an ID (edit mode), else POST (create mode)
         const url = heroId.value ? `${API_URL}/promotions/${heroId.value}` : `${API_URL}/promotions`;
@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const result = await response.json();
-            console.log('Hero saved successfully:', result);
             alert('Hero saved successfully!');
 
             // Optionally, clear the form after successful submission (for POST only)

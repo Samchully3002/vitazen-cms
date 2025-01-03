@@ -9,8 +9,6 @@ exports.renderPostList = async (req, res) => {
         const response = await axios.get(`${BACKEND_API}/vsight`);
         const vsights = response.data.vsights;
 
-        console.log(vsights);
-
         res.render('contents/blogs/post-list', { vsights });
     } catch (err) {
         console.error(err.message);
@@ -37,7 +35,7 @@ exports.renderBlogEdit = async (req, res) => {
        // Extract discount data
        const vsight = response.data.vsight;
        // Render the view and pass the discount data
-       console.log(vsight);
+       
        res.render('contents/blogs/post-create', { vsight });
     } catch (err) {
         console.error(err.message);

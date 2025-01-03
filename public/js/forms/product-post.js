@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: formData.get('name'),
             brand: formData.get('brand'),
             manufacture: formData.get('manufacture'),
-            description: formData.get('description'),
+            description: formData.get('descriptionText'),
             price: parseFloat(formData.get('price')) || 0
         };
 
@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const result = await response.json();
-            console.log('Product saved successfully:', result);
             alert('Product saved successfully!');
 
             // Optionally, clear the form after successful submission (for POST only)

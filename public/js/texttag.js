@@ -38,7 +38,6 @@ function updateProductsField() {
     const tags = Array.from(tagContainer.querySelectorAll('.tag'))
         .map(tag => tag.textContent.trim().replace('×', '').trim()); // Remove delete button text
     productsField.value = JSON.stringify(tags); // Save as JSON array in the hidden field
-    console.log('Updated products field:', productsField.value); // For debugging
 }
 
 function populateTags(data) {

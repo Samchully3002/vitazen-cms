@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'promo',
         };
 
-        console.log(heroData);
-
         // Prepare files for upload
         const image = formData.get('image');
 
@@ -32,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Append files
         if (image) body.append('image', image);
+
+        console.log(body);
         
         const method = promoId.value ? 'PUT' : 'POST'; // Use PUT if there's an ID (edit mode), else POST (create mode)
         const url = promoId.value ? `${API_URL}/promotions/${promoId.value}` : `${API_URL}/promotions`;

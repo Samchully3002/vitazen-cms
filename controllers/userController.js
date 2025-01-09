@@ -27,12 +27,14 @@ exports.renderUserCreate = async (req, res) => {
 
 exports.renderUserEdit = async (req, res) => {
     try {
-        const { accountNumber } = req.params; // Extract id from request parameters
+        const { id } = req.params; // Extract id from request parameters
         // Fetch discount data from the API
-       const response = await axios.get(`${BACKEND_API}/users/account/number/${accountNumber}`);
+       const response = await axios.get(`${BACKEND_API}/users/${id}`);
         
        // Extract discount data
        const user = response.data;
+
+       console.log(user);
        
        // Render the view and pass the discount data
        res.render('contents/users/user-post', { user });
@@ -47,10 +49,10 @@ exports.deleteUser = async (req, res) => {
         const { id } = req.params; // Extract product ID from request parameters
 
         // Send delete request to the backend
-        await axios.delete(`${BACKEND_API}/vsight/${id}`);
+        await axios.delete(`${BACKEND_API}/users/${id}`);
 
         // Redirect to the product list or send a success response
-        res.redirect('/blogs/post-list');
+        res.redirect('/peoples/admin-list');
     } catch (err) {
         console.error(err.message);
 

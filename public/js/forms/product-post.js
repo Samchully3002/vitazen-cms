@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('An error occurred:', error);
-            alert('An error occurred while saving the product. Please try again.');
+            //alert('An error occurred while saving the product. Please try again.');
         }
     });
 

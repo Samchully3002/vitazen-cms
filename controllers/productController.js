@@ -112,6 +112,8 @@ exports.renderDiscountEdit = async (req, res) => {
           }
        }
 
+       console.log(validProductIds);
+
        // Render the view and pass the discount data
        res.render('contents/products/discount-post', { discount, validProductIds });
     } catch (err) {

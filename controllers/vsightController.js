@@ -36,7 +36,10 @@ exports.renderBlogEdit = async (req, res) => {
        const vsight = response.data.vsight;
        // Render the view and pass the discount data
        
-       res.render('contents/blogs/post-create', { vsight });
+       let vsightCat;
+
+       vsightCat = vsight.category
+       res.render('contents/blogs/post-create', { vsight, vsightCat });
     } catch (err) {
         console.error(err.message);
         res.redirect('/login');

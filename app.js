@@ -39,6 +39,7 @@ app.use('/', adminRoute);
 app.use((req, res) => {
     res.status(404).render('contents/error-404'); // Render a custom 404 page
 });
+
   
 
 
@@ -50,3 +51,16 @@ app.locals.baseUrl = `http://localhost:${PORT}`; // Your base URL here
 app.listen(PORT, () => {
     console.log(`Frontend running at http://localhost:${PORT}`);
 });
+
+// Get the local IP address dynamically
+// const os = require('os');
+// const networkInterfaces = os.networkInterfaces();
+// const localIP = Object.values(networkInterfaces)
+//   .flat()
+//   .find((iface) => iface.family === 'IPv4' && !iface.internal).address;
+
+// app.locals.baseUrl = `http://${localIP}:${PORT}`;
+
+// app.listen(PORT, '0.0.0.0', () => {
+//     console.log(`Frontend running at http://${localIP}:${PORT}`);
+// });

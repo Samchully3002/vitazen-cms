@@ -58,12 +58,12 @@ block content
                                 .form-group.row
                                     .col-sm-12
                                         label(for='shopee') Shopee
-                                        input#shopee.form-control(name='shopee' type='text' placeholder='Shopee...' required value=product ? product.shopee : '')
+                                        input#shopee.form-control(name='shopee' type='text' placeholder='Shopee...' value=product ? product.shopee : '')
                             .col-md-6
                                 .form-group.row
                                     .col-sm-12
                                         label(for='tokopedia') Tokopedia
-                                        input#tokopedia.form-control(name='tokopedia' type='text' placeholder='Tokopedia...' required value=product ? product.tokopedia : '')
+                                        input#tokopedia.form-control(name='tokopedia' type='text' placeholder='Tokopedia...' value=product ? product.tokopedia : '')
                         
                     
 
@@ -123,7 +123,12 @@ block pageScripts
         selector: '#descriptionText',
         plugins: 'link table lists',
         toolbar: 'undo redo | bold italic | bullist numlist | alignleft aligncenter alignright alignjustify | table',
-        height: 500
+        height: 500,
+        setup: function (editor) {
+            editor.on('change', function () {
+                editor.save(); // Sync content to the hidden textarea
+            });
+        },
       });
 
                                         

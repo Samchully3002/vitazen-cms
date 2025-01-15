@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const blogData = {
             title: formData.get('title'),
             body: formData.get('bodyPost'),
-            active: formData.get('active')            
+            active: formData.get('active'),
+            active: formData.get('favourite'),
+            category: JSON.parse(formData.get('category'))          
         };
-
+        console.log(formData.get('category'));
         // Prepare files for upload
         const image = formData.get('image');
 
